@@ -48,8 +48,20 @@ if (have_posts()) {
                 </div>
 
                 <!-- Stream Content -->
-                <div class="match-stream" id="match-stream" >
-                    <iframe src="<?php echo esc_url($video_iframe_url); ?>" width="900" height="507"></iframe>
+                <!-- <div class="match-stream" id="match-stream" >
+                    <iframe src="<?php //echo esc_url($video_iframe_url); ?>" width="900" height="507"></iframe>
+                </div> -->
+                <!-- Stream Content -->
+                <div class="match-stream owl-carousel" id="match-stream" >
+                    <?php
+                    if (isset($video_url) && is_array($video_url)) {
+                        foreach ($video_url as $video) {
+                            if (isset($video['iframe'])) {
+                                echo '<div class="item"><iframe src="' . esc_url($video['iframe']) . '" width="900" height="507"></iframe></div>';
+                            }
+                        }
+                    }
+                    ?>
                 </div>
             </section>
 
@@ -132,3 +144,14 @@ if (have_posts()) {
     get_footer();
 
 ?>
+
+<script>
+jQuery(document).ready(function($) {
+    $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        items: 1
+    });
+});
+</script>

@@ -75,3 +75,11 @@ function get_single_match_data() {
 // Handle AJAX requests
 add_action('wp_ajax_get_single_match_data', 'get_single_match_data'); // For logged in users
 add_action('wp_ajax_nopriv_get_single_match_data', 'get_single_match_data'); // For logged out users
+
+function enqueue_owlcarousel() {
+    // Enqueue the Owl Carousel scripts and styles
+    wp_enqueue_style('owlcarousel-style', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css');
+    wp_enqueue_style('owlcarousel-theme-default', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css');
+    wp_enqueue_script('owlcarousel-script', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_owlcarousel');
