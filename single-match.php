@@ -24,12 +24,6 @@ if (have_posts()) {
         //Stream
         $video_url = get_post_meta(get_the_ID(), 'video_data_urls', true);
         $video_url = json_decode($video_url, true);  // Convert the JSON string back to PHP array
-
-        // Check if video_data_urls is set and is an array
-        if (isset($video_url) && is_array($video_url)) {
-            // Get the first iframe URL
-            $video_iframe_url = $video_url[0]['iframe'];
-        }
         
         $default_logo_url = get_stylesheet_directory_uri() . '/assets/images/football-min.png';
         // $live_bg = '/wp-content/themes/force-child/assets/images/live-bg.webp';        
@@ -47,21 +41,20 @@ if (have_posts()) {
                     <h1>Watch Live <?php echo $home; ?> vs. <?php echo $away; ?></h1>
                 </div>
 
+                <!-- Video Buttons -->
+                <?php if (isset($video_url) && is_array($video_url)): ?>
+                    <div class="video-buttons">
+                        <?php foreach ($video_url as $key => $video): ?>
+                            <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
+                                Video <?php echo $key + 1; ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+
                 <!-- Stream Content -->
-                <!-- <div class="match-stream" id="match-stream" >
-                    <iframe src="<?php //echo esc_url($video_iframe_url); ?>" width="900" height="507"></iframe>
-                </div> -->
-                <!-- Stream Content -->
-                <div class="match-stream owl-carousel" id="match-stream" >
-                    <?php
-                    if (isset($video_url) && is_array($video_url)) {
-                        foreach ($video_url as $video) {
-                            if (isset($video['iframe'])) {
-                                echo '<div class="item"><iframe src="' . esc_url($video['iframe']) . '" width="900" height="507"></iframe></div>';
-                            }
-                        }
-                    }
-                    ?>
+                <div class="match-stream" id="match-stream">
+                    <iframe src="" width="900" height="507"></iframe>
                 </div>
             </section>
 
@@ -146,12 +139,15 @@ if (have_posts()) {
 ?>
 
 <script>
-jQuery(document).ready(function($) {
-    $(".owl-carousel").owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        items: 1
+    document.addEventListener("DOMContentLoaded", function () {
+        var buttons = document.querySelectorAll('.video-button');
+        var iframe = document.querySelector('#match-stream iframe');
+
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var url = button.getAttribute('data-url');
+                iframe.src = url;
+            });
+        });
     });
-});
 </script>
