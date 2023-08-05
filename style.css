@@ -1,0 +1,248 @@
+/**
+Theme Name: Cosmo Theme
+Author: Cosmo Theme
+Author URI: https://wordpress.org/
+Description: Cosmo Theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cosmo-theme
+Template: astra
+*/
+
+.site-content {
+    background-color: #020617;
+}
+/* Front Page */
+main.main-layout {
+    width: 100%;
+}
+.main-match{
+    /* background-color: #418bac; */
+    color: #fff;
+    border-radius: 10px;
+    padding: 15px 10px;
+    position: relative;
+}
+.main-match > * {
+    position: relative;
+    z-index: 2;
+}
+.live-overlay{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, #ad44ee, #33d0ff);
+    opacity: .5;
+    border-radius: 10px !important;
+    z-index: 1;
+}
+.upcoming-overlay{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, #eaee44, #33d0ff);
+    opacity: .5;
+    border-radius: 10px !important;
+    z-index: 1;
+}
+.match-item,
+#live-matches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.match-content {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 80px 1fr;
+    height: 130px;
+    color: #fff;
+}
+.match-content h4, 
+.match-content p,
+.tournament-name p{
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 0 rgb(0 0 0 / 50%);
+}
+.text-center {
+    text-align: center;
+}
+.match-mid-option {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.home-score,
+.away-score,
+.match-mid-option span {
+    padding: 5px;
+}
+.elapsed-time {
+    width: 100%;
+}
+.view-match-btn {
+    padding: 10px 5px;
+}
+.view-match-btn a { 
+    color: #f4f4f4;
+    background: #1f1f1f;
+    padding: 10px 15px; 
+}
+.view-match-btn a:hover { 
+    color:  #ffd803;
+    background-color: #1e293b;
+}
+
+.upcoming-container,
+.live-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.live-title,
+.upcoming-title {
+    grid-column: 1 / span 2; /* This will make the title span both columns */
+    text-align: center;
+}
+
+.upcoming-match { 
+    background: url('/wp-content/themes/force-child/assets/images/upcoming-bg.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+}
+
+.up-time {
+    font-size: 35px;
+    font-weight: bold;
+}
+.up-date {
+    background: #b1331f;
+    padding: 0 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.live-match { 
+    background: url('/wp-content/themes/force-child/assets/images/live-bg.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;  
+}
+
+/* Single Post Page  */
+.live-title,
+.upcoming-title {
+    padding: 10px 0;
+}
+.live-title h2,
+.upcoming-title h2 {
+    color: #fff;
+    text-align: left;
+}
+.team-container{
+    background: #0f172a;
+}
+.team-details h3 {
+    color: #fff;
+}
+.single-match-content {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 80px 1fr;
+}
+.single-match-mid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+}
+.single-match-mid p {
+    margin-bottom: 0px;
+}
+.actual-scores {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    background: #5ec400;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+.actual-scores span{
+    color: #fff;
+    margin-top: 5px;
+}
+.home-score p,
+.away-score p,
+.actual-scores span {
+    font-size: 1.4375em;
+    font-weight: 700;
+    color: #f4f4f4;
+}
+.team-container {
+    padding: 15px 5px;
+}
+.home-logo,
+.away-logo {
+    padding: 15px 10px;
+}
+.match-details h1,
+.match-simulation h2 {
+    color: #f4f4f4;
+}
+
+.match-details,
+.team-details {
+    padding: 15px 0;
+}
+.match-details h1 {
+    position: relative;
+    padding-left: 10px;
+}
+.match-details h1:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 70%;
+    background-color: #ff4c4c;
+}
+
+.team-details h2{
+    position: relative;
+    padding-left: 10px;
+    color: #fff;
+}
+
+.team-details h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 85%;
+    background-color: #ff4c4c;
+}
+
+#elapsed-time,
+#elapsed-hours {
+    color: #f4f4f4;
+}
+
+.single-match-right .away-name p,
+.single-match-left .home-name p {
+    color: #f4f4f4;
+}
