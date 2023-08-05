@@ -40,7 +40,12 @@ if (have_posts()) {
                 <div class="match-details">
                     <h1>Watch Live <?php echo $home; ?> vs. <?php echo $away; ?></h1>
                 </div>
-
+                
+                <!-- Stream Content -->
+                <div class="match-stream" id="match-stream">
+                    <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="900" height="507"></iframe>
+                </div>
+                
                 <!-- Video Buttons -->
                 <?php if (isset($video_url) && is_array($video_url)): ?>
                     <div class="video-buttons">
@@ -51,11 +56,6 @@ if (have_posts()) {
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-
-                <!-- Stream Content -->
-                <div class="match-stream" id="match-stream">
-                    <iframe src="" width="900" height="507"></iframe>
-                </div>
             </section>
 
             <div class="team-details">

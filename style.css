@@ -246,3 +246,19 @@ main.main-layout {
 .single-match-left .home-name p {
     color: #f4f4f4;
 }
+.video-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.video-button {
+    background: #0073aa;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.video-button:hover {
+    background: #005a88;
+}
