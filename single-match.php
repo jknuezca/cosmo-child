@@ -32,30 +32,39 @@ if (have_posts()) {
         $away_logo_url = $away_logo ?: $default_logo_url;
 
         $elapsed_hours = floor($e_time / 60);
+
+        $m_date = date('m/d/y', strtotime($m_time));
 ?>
         <!-- Output the match content -->
         <main class="main-layout">
             <section class="single-match-container">
                 <!--Tournament Name -->
                 <div class="match-details">
-                    <h1>Watch Live <?php echo $home; ?> vs. <?php echo $away; ?></h1>
+                    <h1>Watch <?php echo $home; ?> vs. <?php echo $away; ?> Live on <?php echo $m_date; ?></h1>
                 </div>
-                
-                <!-- Stream Content -->
-                <div class="match-stream" id="match-stream">
-                    <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="900" height="507"></iframe>
-                </div>
-                
-                <!-- Video Buttons -->
-                <?php if (isset($video_url) && is_array($video_url)): ?>
-                    <div class="video-buttons">
-                        <?php foreach ($video_url as $key => $video): ?>
-                            <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
-                                Video <?php echo $key + 1; ?>
-                            </button>
-                        <?php endforeach; ?>
+                <div class="stream-container">
+                    <div class="stream-box">
+                        <!-- Stream Content Iframe -->
+                        <div class="match-stream" id="match-stream">
+                            <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="100%" height="530"></iframe>
+                        </div>
+
+                        <!-- Video Buttons -->
+                        <?php if (isset($video_url) && is_array($video_url)): ?>
+                            <div class="video-buttons">
+                                <?php foreach ($video_url as $key => $video): ?>
+                                    <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
+                                        Video <?php echo $key + 1; ?>
+                                    </button>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
+                    <div class="c-box">
+                        <h3>Match Statistics</h3>
+                    </div>
+                </div>
+                
             </section>
 
             <div class="team-details">

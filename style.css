@@ -246,10 +246,19 @@ main.main-layout {
 .single-match-left .home-name p {
     color: #f4f4f4;
 }
+.stream-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-column-gap: 10px;
+    position: relative;
+    margin-bottom: 15px;
+}
 .video-buttons {
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+    justify-content: center;
+    column-gap: 15px;
+    background: #0f172a;
+    padding: 10px 0;
 }
 .video-button {
     background: #0073aa;
@@ -261,4 +270,15 @@ main.main-layout {
 }
 .video-button:hover {
     background: #005a88;
+}
+.match-details h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.c-box {
+    background: #0f172a;
+    padding: 10px 15px;
+}
+.c-box h3 {
+    color: #f4f4f4;
 }
