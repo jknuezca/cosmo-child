@@ -62,6 +62,7 @@ function get_single_match_data() {
         'elapsed_time' => get_post_meta($post_id, 'elapsed_time', true),
         'match_time' => get_post_meta($post_id, 'match_time', true),
         'animation_url' => get_post_meta($post_id, 'anim_url', true),
+        'status' => get_post_meta($post_id, 'status', true),
         'video_data_urls' => json_decode(get_post_meta($post_id, 'video_data_urls', true), true),
 
 		// 'video_data_urls' => json_decode(get_post_meta($post_id, 'video_data_urls', true), true),

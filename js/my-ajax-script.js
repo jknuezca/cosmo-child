@@ -23,13 +23,17 @@ jQuery(document).ready(function($) {
                     $('#home-score').text(match_data.home_team_score);
                     $('#away-score').text(match_data.away_team_score);
                     $('.match-simulation iframe').attr('src', response.anim_url);
-
-                    // Check if video_data_urls array is not empty and has an iframe field
-                    // if(match_data.video_data_urls && match_data.video_data_urls.length > 0) {
-                    //     $('.match-stream iframe').attr('src', match_data.video_data_urls[1].iframe);
-                    // } else {
-                    //     console.log('No video URLs available');
-                    // }
+                    
+                    // Check match status and add or remove the "Match Ended" overlay
+                    if (match_data.status !== '2') {
+                        // If match ended and the overlay doesn't exist, add it
+                        if ($('#match-stream .match-ended').length == 0) {
+                            $('#match-stream').append('<div class="match-ended"><p>Match Ended</p></div>');
+                        }
+                    } else {
+                        // If match is live, remove the overlay if it exists
+                        $('#match-stream .match-ended').remove();
+                    }
 
                     // console.log(response);
 

@@ -51,6 +51,7 @@ function create_match_post($match_data) {
     update_post_meta($post_id, 'away_team_logo', $match_data['away_team_logo']);
     update_post_meta($post_id, 'elapsed_time', $match_data['elapsed_time']);
     update_post_meta($post_id, 'match_time', $match_data['match_time']);
+    update_post_meta($post_id, 'status', $match_data['status']);
     if (isset($match_data['anim_url'])) {
         update_post_meta($post_id, 'anim_url', $match_data['anim_url']);
     }

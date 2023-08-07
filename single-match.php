@@ -20,6 +20,7 @@ if (have_posts()) {
         $e_time = get_post_meta(get_the_ID(), 'elapsed_time', true);
         $m_time = get_post_meta(get_the_ID(), 'match_time', true);
         $anim_url = get_post_meta(get_the_ID(), 'anim_url', true);
+        $match_status = get_post_meta(get_the_ID(), 'status', true);
 
         //Stream
         $video_url = get_post_meta(get_the_ID(), 'video_data_urls', true);
