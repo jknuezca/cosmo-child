@@ -39,7 +39,6 @@ jQuery(document).ready(function($) {
                     // if (match_data.status !== '2' || !match_data.status || !match_data.video_data_urls || match_data.video_data_urls.length === 0)
                     if (match_data.status !== '2' || !match_data.status || currentTime > matchEndTime) {
                         if ($('#match-stream .match-ended').length == 0) {
-                            console.log("Appending 'Match Ended' overlay");
                             $('#match-stream').append('<div class="match-ended"><p>Match Ended</p></div>');
                         }
                     } else {
