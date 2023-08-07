@@ -154,12 +154,14 @@ function update_matches() {
                         } else {
                             // Match has started, display the actual scores
                         ?>
-                            <div class="home-score">
-                                <p><?php echo $home_score; ?></p>
-                            </div>
-                            <span>:</span>
-                            <div class="away-score">
-                                <p><?php echo $away_score; ?></p>
+                            <div class="score-box">
+                                <div class="home-score">
+                                    <p><?php echo $home_score; ?></p>
+                                </div>
+                                <span>:</span>
+                                <div class="away-score">
+                                    <p><?php echo $away_score; ?></p>
+                                </div>
                             </div>
                         <?php
                         }
@@ -229,8 +231,8 @@ function update_matches() {
                     </div>
                     <!-- Score -->
                     <div class="match-mid-option text-center">
-                        <p class="up-date"><?php echo $m_date; ?></p>
                         <p class="up-time"><?php echo $m_time; ?></p>
+                        <p class="up-date"><?php echo $m_date; ?></p>
                     </div>
                     <!-- Away Team -->
                     <div class="match-right-option text-center">
