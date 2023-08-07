@@ -106,14 +106,14 @@ main.main-layout {
 .upcoming-container,
 .live-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding: 10px 0;
 }
 
 .live-title,
 .upcoming-title {
-    grid-column: 1 / span 3; /* This will make the title span both columns */
+    grid-column: 1 / span 2; /* This will make the title span both columns */
     text-align: center;
 }
 
@@ -294,11 +294,12 @@ main.main-layout {
 .c-box h3 {
     color: #f4f4f4;
 }
-.match-stream {
+.match-stream,
+#match-stream {
     position: relative;
 }
 
-.match-ended {
+#match-stream .match-ended {
     position: absolute;
     top: 0;
     left: 0;

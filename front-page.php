@@ -13,6 +13,10 @@ get_header();
             <!-- Match items will be dynamically inserted here -->
         </div>
     </section>
+
+    <section class="main-content">
+        <?php echo the_content(); ?>
+    </section>
 </main>
 
 <?php get_footer(); ?>

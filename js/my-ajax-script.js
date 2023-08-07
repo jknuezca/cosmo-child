@@ -14,7 +14,19 @@ jQuery(document).ready(function($) {
                     var match_data = response.data;
 
                     // console.log(match_data);
+                    // console.log("Match status: ", match_data.status);
 
+                    // Convert match_time to a JavaScript Date object
+                    var matchStartTime = new Date(match_data.match_time);
+                    
+                    // Assuming a match lasts 120 minutes (90 + 30 extra). You can adjust this.
+                    // 120 minutes * 60 seconds/minute * 1000 milliseconds/second
+                    var matchDuration = 120 * 60 * 1000;
+
+                    // Calculate match end time
+                    var matchEndTime = new Date(matchStartTime.getTime() + matchDuration);
+                    var currentTime = new Date();
+                    
                     // Use received match_data to update your page
                     // For example, if you have an element with ID 'home-team-name'
 
@@ -24,14 +36,13 @@ jQuery(document).ready(function($) {
                     $('#away-score').text(match_data.away_team_score);
                     $('.match-simulation iframe').attr('src', response.anim_url);
                     
-                    // Check match status and add or remove the "Match Ended" overlay
-                    if (match_data.status !== '2') {
-                        // If match ended and the overlay doesn't exist, add it
+                    // if (match_data.status !== '2' || !match_data.status || !match_data.video_data_urls || match_data.video_data_urls.length === 0)
+                    if (match_data.status !== '2' || !match_data.status || currentTime > matchEndTime) {
                         if ($('#match-stream .match-ended').length == 0) {
+                            console.log("Appending 'Match Ended' overlay");
                             $('#match-stream').append('<div class="match-ended"><p>Match Ended</p></div>');
                         }
                     } else {
-                        // If match is live, remove the overlay if it exists
                         $('#match-stream .match-ended').remove();
                     }
 

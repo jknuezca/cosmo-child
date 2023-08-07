@@ -20,7 +20,8 @@ if (have_posts()) {
         $e_time = get_post_meta(get_the_ID(), 'elapsed_time', true);
         $m_time = get_post_meta(get_the_ID(), 'match_time', true);
         $anim_url = get_post_meta(get_the_ID(), 'anim_url', true);
-        $match_status = get_post_meta(get_the_ID(), 'status', true);
+        $match_id = get_post_meta(get_the_ID(), 'match_id', true);
+        // $match_status = get_post_meta(get_the_ID(), 'status', true);
 
         //Stream
         $video_url = get_post_meta(get_the_ID(), 'video_data_urls', true);
@@ -41,7 +42,7 @@ if (have_posts()) {
             <section class="single-match-container">
                 <!--Tournament Name -->
                 <div class="match-details">
-                    <h1>Watch <?php echo $home; ?> vs. <?php echo $away; ?> Live on <?php echo $m_date; ?></h1>
+                    <h1>Watch <?php echo $home; ?> vs. <?php echo $away; ?> Live | <?php echo $m_date; ?></h1>
                 </div>
                 <div class="stream-container">
                     <div class="stream-box">
@@ -55,7 +56,7 @@ if (have_posts()) {
                             <div class="video-buttons">
                                 <?php foreach ($video_url as $key => $video): ?>
                                     <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
-                                        Video <?php echo $key + 1; ?>
+                                        HD <?php echo $key + 1; ?>
                                     </button>
                                 <?php endforeach; ?>
                             </div>
