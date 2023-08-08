@@ -13,15 +13,16 @@ jQuery(document).ready(function($) {
                 if(response.success) {
                     var match_data = response.data;
 
-                    // console.log(match_data);
-                    // console.log("Match status: ", match_data.status);
+                    console.log(match_data);
+                    console.log("Match status: ", match_data.status);
 
                     // Convert match_time to a JavaScript Date object
                     var matchStartTime = new Date(match_data.match_time);
                     
-                    // Assuming a match lasts 120 minutes (90 + 30 extra). You can adjust this.
+                    // Assuming a match lasts 120 minutes (90 + 30 extra).
                     // 120 minutes * 60 seconds/minute * 1000 milliseconds/second
-                    var matchDuration = 120 * 60 * 1000;
+                    // var matchDuration = 120 * 60 * 1000;
+                    var matchDuration = 2 * 60 * 60 * 1000;
 
                     // Calculate match end time
                     var matchEndTime = new Date(matchStartTime.getTime() + matchDuration);
