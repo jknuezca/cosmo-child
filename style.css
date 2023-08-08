@@ -267,15 +267,19 @@ main.main-layout {
 }
 .video-buttons {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
     column-gap: 15px;
     background: #0f172a;
-    padding: 10px 0;
+    padding: 10px 15px;
 }
 .video-button {
     background: #0073aa;
+    font-size: .85rem;
+    font-weight: 500;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -321,6 +325,17 @@ main.main-layout {
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
+}
+.commentator-info {
+    background: #1fb757;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+.commentator-info p {
+    font-size: .85rem;
+    font-weight: 500;
+    color: #f4f4f4;
+    margin-bottom: 0;
 }
 
 /* media queries */

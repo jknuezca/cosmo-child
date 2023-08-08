@@ -52,11 +52,16 @@ function create_match_post($match_data) {
     update_post_meta($post_id, 'elapsed_time', $match_data['elapsed_time']);
     update_post_meta($post_id, 'match_time', $match_data['match_time']);
     update_post_meta($post_id, 'status', $match_data['status']);
+
+    // match_id as the unique identifier
+    update_post_meta($post_id, 'match_id', $match_id);
+
+    if (isset($match_data['commentator'])) {
+        update_post_meta($post_id, 'commentator', $match_data['commentator']);
+    }
     if (isset($match_data['anim_url'])) {
         update_post_meta($post_id, 'anim_url', $match_data['anim_url']);
     }
-    // match_id as the unique identifier
-    update_post_meta($post_id, 'match_id', $match_id);
 
     // Check if video_data_urls is set and is an array
     if (isset($match_data['video_data_urls']) && is_array($match_data['video_data_urls'])) {

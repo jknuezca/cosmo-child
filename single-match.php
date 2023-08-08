@@ -21,6 +21,7 @@ if (have_posts()) {
         $m_time = get_post_meta(get_the_ID(), 'match_time', true);
         $anim_url = get_post_meta(get_the_ID(), 'anim_url', true);
         $match_id = get_post_meta(get_the_ID(), 'match_id', true);
+        $commentator = get_post_meta(get_the_ID(), 'commentator', true);
         // $match_status = get_post_meta(get_the_ID(), 'status', true);
 
         //Stream
@@ -54,6 +55,11 @@ if (have_posts()) {
                         <!-- Video Buttons -->
                         <?php if (isset($video_url) && is_array($video_url)): ?>
                             <div class="video-buttons">
+                            <?php if (!empty($commentator)): ?>
+                                <div class="commentator-info">
+                                    <p>🎙️<?php echo esc_html($commentator); ?></p>
+                                </div>
+                            <?php endif; ?>
                                 <?php foreach ($video_url as $key => $video): ?>
                                     <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
                                         HD <?php echo $key + 1; ?>
