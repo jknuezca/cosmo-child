@@ -114,7 +114,9 @@ if (have_posts()) {
                                         <?php echo $home_score; ?>
                                     </p>
                                 </div>
-                                <span>:</span>
+                                <div class="actual-mid">
+                                    <span>:</span>
+                                </div>
                                 <div class="away-score">
                                     <p id="away-score">
                                         <?php echo $away_score; ?>

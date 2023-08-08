@@ -13,8 +13,8 @@ jQuery(document).ready(function($) {
                 if(response.success) {
                     var match_data = response.data;
 
-                    console.log(match_data);
-                    console.log("Match status: ", match_data.status);
+                    // console.log(match_data);
+                    // console.log("Match status: ", match_data.status);
 
                     // Convert match_time to a JavaScript Date object
                     var matchStartTime = new Date(match_data.match_time);

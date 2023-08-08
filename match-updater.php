@@ -122,14 +122,6 @@ function update_matches() {
             // $elapsed_minutes = $e_time % 60;
 
             $post_id = create_match_post($match);
-
-            // Check if the post was created successfully
-            // if ($post_id === 0) {
-            //     echo 'Failed to create match post.';
-            // } else {
-            //     echo 'Match post created with ID: ' . $post_id;
-            // }
-
             $permalink = get_permalink($post_id);
             
             ?>
