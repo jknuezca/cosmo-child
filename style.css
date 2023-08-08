@@ -219,7 +219,7 @@ main.main-layout {
 }
 .home-logo,
 .away-logo {
-    padding: 15px 10px;
+    padding: 0 10px 10px 10px;
 }
 .match-details h1,
 .match-simulation h2 {
@@ -268,6 +268,9 @@ main.main-layout {
 .single-match-right .away-name p,
 .single-match-left .home-name p {
     color: #f4f4f4;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 .stream-container {
     display: grid;
@@ -290,7 +293,7 @@ main.main-layout {
     font-size: .85rem;
     font-weight: 500;
     color: #ffffff;
-    padding: 10px;
+    padding: .65rem;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -299,7 +302,7 @@ main.main-layout {
     background: #005a88;
 }
 .match-details h1 {
-    font-size: 30px;
+    font-size: 1.75rem;
     text-transform: uppercase;
 }
 .c-box {

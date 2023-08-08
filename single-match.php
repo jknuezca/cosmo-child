@@ -40,6 +40,67 @@ if (have_posts()) {
 ?>
         <!-- Output the match content -->
         <main class="main-layout">
+            <section class="team-container" style="margin-top: 15px;">
+                <!-- Single Match Content -->
+                <div class="single-match-content">
+                    <!-- Home Team-->
+                    <div class="single-match-left text-center">
+                        <div class="home-logo">
+                            <img src="<?php echo $home_logo_url; ?>" alt="home-logo">
+                        </div>
+                        <div class="home-name">
+                            <p><?php echo $home; ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Score -->
+                    <div class="single-match-mid text-center">
+                        <?php
+                        // Check if the match is upcoming (elapsed_time is empty)
+                        if (empty($e_time)) {
+                            // Display the match time in the "Score" section
+                            $m_time = $match['match_time'];
+                        ?>
+                            <p><?php echo $m_time; ?></p>
+                        <?php
+                        } else {
+                            // The match has started, display the actual scores
+                        ?>
+                            <div class="actual-scores">
+                                <div class="home-score">
+                                    <p id="home-score">
+                                        <?php echo $home_score; ?>
+                                    </p>
+                                </div>
+                                <div class="actual-mid">
+                                    <span>:</span>
+                                </div>
+                                <div class="away-score">
+                                    <p id="away-score">
+                                        <?php echo $away_score; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        <div class="elapsed-time">
+                            <p id="elapsed-time"><?php echo $e_time; ?>'</p>
+                            <p id="elapsed-hours"><?php echo $elapsed_hours; ?>H</p> <!-- Display elapsed time in hours -->
+                        </div>
+                    </div>
+
+                    <!-- Away Team -->
+                    <div class="single-match-right text-center">
+                        <div class="away-logo">
+                            <img src="<?php echo $away_logo_url; ?>" alt="away-logo">
+                        </div>
+                        <div class="away-name">
+                            <p><?php echo $away; ?></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="single-match-container">
                 <!--Tournament Name -->
                 <div class="match-details">
