@@ -195,6 +195,9 @@ main.main-layout {
 .single-match-mid p {
     margin-bottom: 0px;
 }
+.single-match-mid .elapsed-time {
+    padding-top: 5px;
+}
 .actual-scores {
     display: flex;
     justify-content: space-around;
@@ -260,7 +263,10 @@ main.main-layout {
     background-color: #ff4c4c;
 }
 
-#elapsed-time,
+#elapsed-time{
+    color: #5ec400;
+    font-weight: 500;
+}
 #elapsed-hours {
     color: #f4f4f4;
 }

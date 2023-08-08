@@ -125,9 +125,9 @@ function update_matches() {
             $permalink = get_permalink($post_id);
             
             ?>
-            <a href="<?php echo $permalink; ?>">
             <div class="main-match live-match">
-            <div class="live-overlay"></div>
+                <div class="live-overlay"></div>
+                <a href="<?php echo $permalink; ?>">
                 <div class="tournament-name text-center">
                     <p><?php echo $t_name; ?></p>
                     
@@ -180,8 +180,8 @@ function update_matches() {
                 <!-- <div class="view-match-btn text-center">
                     <a href="<?php //echo $permalink; ?>">View Match Details</a>
                 </div> -->
-            </div>
             </a>
+            </div>
     <?php
         }
     ?>
