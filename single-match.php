@@ -189,7 +189,7 @@ if (have_posts()) {
                         ?>
                         <div class="elapsed-time">
                             <p id="elapsed-time"><?php echo $e_time; ?>'</p>
-                            <p id="elapsed-hours"><?php echo $elapsed_hours; ?>H</p> <!-- Display elapsed time in hours -->
+                            <p id="elapsed-hours"><?php echo $elapsed_hours; ?>H</p>
                         </div>
                     </div>
 
@@ -219,15 +219,15 @@ if (have_posts()) {
 ?>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var buttons = document.querySelectorAll('.video-button');
-        var iframe = document.querySelector('#match-stream iframe');
+    document.addEventListener("DOMContentLoaded", () => {
+        const iframe = document.querySelector('#match-stream iframe');
+        const container = document.querySelector('.video-buttons');
 
-        buttons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var url = button.getAttribute('data-url');
-                iframe.src = url;
-            });
+        container.addEventListener('click', event => {
+            const button = event.target;
+            if (button.classList.contains('video-button')) {
+                iframe.src = button.getAttribute('data-url');
+            }
         });
     });
 </script>

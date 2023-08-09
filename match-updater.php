@@ -92,11 +92,12 @@ function update_matches() {
         }
 
         // Output the live matches
-        echo '
-        <div class="live-container">
-            <div class="live-title text-center">
-                <h2>Live Matches</h2>
-            </div>';
+        if (!empty($live_matches)) {
+            echo '
+            <div class="live-container">
+                <div class="live-title text-center">
+                    <h2>Live Matches</h2>
+                </div>';
         foreach ($live_matches as $match) {
             // Extract the desired data field(s) from the current match
             $home = $match['home_team_name'];
@@ -177,12 +178,10 @@ function update_matches() {
                         <p><?php echo $away; ?></p>
                     </div>
                 </div>
-                <!-- <div class="view-match-btn text-center">
-                    <a href="<?php //echo $permalink; ?>">View Match Details</a>
-                </div> -->
             </a>
             </div>
     <?php
+            }
         }
     ?>
         </div> <!-- End of live matches --> 
