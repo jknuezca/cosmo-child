@@ -42,6 +42,8 @@ jQuery(document).ready(function($) {
                         if ($('#match-stream .match-ended').length == 0) {
                             $('#match-stream').append('<div class="match-ended"><p>Match Ended</p></div>');
                         }
+                    } else if (!match_data.video_data_urls || match_data.video_data_urls.length === 0) {
+                        $('#match-stream').append('<div class="match-ended"><p>No Stream Available</p></div>');
                     } else {
                         $('#match-stream .match-ended').remove();
                     }
