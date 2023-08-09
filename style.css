@@ -20,7 +20,7 @@ main.main-layout {
 .main-match{
     /* background-color: #418bac; */
     color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 10px 15px 10px;
     position: relative;
 }
@@ -48,7 +48,7 @@ main.main-layout {
     height: 100%;
     background-image: linear-gradient(120deg, #ad44ee, #33d0ff);
     opacity: .5;
-    border-radius: 10px !important;
+    border-radius: 5px !important;
     z-index: 1;
 }
 .upcoming-overlay{
@@ -60,7 +60,7 @@ main.main-layout {
     height: 100%;
     background-image: linear-gradient(120deg, #eaee44, #33d0ff);
     opacity: .5;
-    border-radius: 10px !important;
+    border-radius: 5px !important;
     z-index: 1;
 }
 .match-item,
@@ -117,15 +117,30 @@ main.main-layout {
 .upcoming-container,
 .live-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     padding: 10px 0;
 }
 
 .live-title,
 .upcoming-title {
-    grid-column: 1 / span 2; /* This will make the title span both columns */
+    grid-column: 1 / span 3; /* This will make the title span both columns */
     text-align: center;
+}
+.live-title h2,
+.upcoming-title h2 {
+    position: relative;
+    padding-left: 10px;
+}
+.live-title h2:after,
+.upcoming-title h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 5px;
+    height: 85%;
+    background-color: #00a752;
 }
 
 .upcoming-match { 
