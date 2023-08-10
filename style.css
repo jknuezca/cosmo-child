@@ -17,6 +17,12 @@ Template: astra
 main.main-layout {
     width: 100%;
 }
+.hero-main {
+    display: grid;
+    grid-template-columns: 1fr 550px;
+    gap: 10px;
+    padding: 10px 0;
+}
 .main-match{
     /* background-color: #418bac; */
     color: #fff;
