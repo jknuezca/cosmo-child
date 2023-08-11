@@ -40,7 +40,48 @@ if (have_posts()) {
 ?>
         <!-- Output the match content -->
         <main class="main-layout">
-            <section class="team-container" style="margin-top: 15px;">
+            <section class="single-match-container">
+                <!--Tournament Name -->
+                <div class="match-details">
+                    <h1>Watch <?php echo $home; ?> vs. <?php echo $away; ?> Live | <?php echo $m_date; ?></h1>
+                </div>
+                <div class="stream-container">
+                    <div class="stream-box">
+                        <!-- Stream Content Iframe -->
+                        <div class="match-stream" id="match-stream">
+                            <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="100%" height="530"></iframe>
+                        </div>
+
+                        <!-- Video Buttons -->
+                        <?php if (isset($video_url) && is_array($video_url)): ?>
+                            <div class="video-buttons">
+                            <?php if (!empty($commentator)): ?>
+                                <div class="commentator-info">
+                                    <p>🎙️<?php echo esc_html($commentator); ?></p>
+                                </div>
+                            <?php endif; ?>
+                                <?php foreach ($video_url as $key => $video): ?>
+                                    <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
+                                        HD <?php echo $key + 1; ?>
+                                    </button>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="c-box">
+                        <h3>Match Statistics</h3>
+                    </div>
+                </div>
+                
+            </section>
+
+            <div class="team-details">
+                <h2>Team Scores</h2>
+            </div>
+            <section class="team-container">
+                <div class="tournament-details">
+                    <h3><?php echo $t_name; ?></h3>
+                </div>
                 <!-- Single Match Content -->
                 <div class="single-match-content">
                     <!-- Home Team-->
@@ -101,112 +142,17 @@ if (have_posts()) {
                     </div>
                 </div>
             </section>
-            <section class="single-match-container">
-                <!--Tournament Name -->
-                <div class="match-details">
-                    <h1>Watch <?php echo $home; ?> vs. <?php echo $away; ?> Live | <?php echo $m_date; ?></h1>
+            <section class="simulation-container">
+                <div class="match-simulation">
+                    <h2>Match Simulation</h2>
+                    <iframe src="<?php echo $anim_url; ?>" frameborder="0" width="100%" height="442"></iframe>
                 </div>
-                <div class="stream-container">
-                    <div class="stream-box">
-                        <!-- Stream Content Iframe -->
-                        <div class="match-stream" id="match-stream">
-                            <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="100%" height="530"></iframe>
-                        </div>
-
-                        <!-- Video Buttons -->
-                        <?php if (isset($video_url) && is_array($video_url)): ?>
-                            <div class="video-buttons">
-                            <?php if (!empty($commentator)): ?>
-                                <div class="commentator-info">
-                                    <p>🎙️<?php echo esc_html($commentator); ?></p>
-                                </div>
-                            <?php endif; ?>
-                                <?php foreach ($video_url as $key => $video): ?>
-                                    <button class="video-button" data-url="<?php echo esc_attr($video['iframe']); ?>">
-                                        HD <?php echo $key + 1; ?>
-                                    </button>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="c-box">
-                        <h3>Match Statistics</h3>
+                <div class="top-box">
+                    <h2>Top Houses</h2>
+                    <div class="box-container">
+                        
                     </div>
                 </div>
-                
-            </section>
-
-            <div class="team-details">
-                <h2>Team Scores</h2>
-            </div>
-            <section class="team-container">
-                <!--Tournament Name -->
-                <div class="team-details text-center">
-                    <h3><?php echo $t_name; ?></h3>
-                </div>
-                <!-- Single Match Content -->
-                <div class="single-match-content">
-                    <!-- Home Team-->
-                    <div class="single-match-left text-center">
-                        <div class="home-logo">
-                            <img src="<?php echo $home_logo_url; ?>" alt="home-logo">
-                        </div>
-                        <div class="home-name">
-                            <p><?php echo $home; ?></p>
-                        </div>
-                    </div>
-
-                    <!-- Score -->
-                    <div class="single-match-mid text-center">
-                        <?php
-                        // Check if the match is upcoming (elapsed_time is empty)
-                        if (empty($e_time)) {
-                            // Display the match time in the "Score" section
-                            $m_time = $match['match_time'];
-                        ?>
-                            <p><?php echo $m_time; ?></p>
-                        <?php
-                        } else {
-                            // The match has started, display the actual scores
-                        ?>
-                            <div class="actual-scores">
-                                <div class="home-score">
-                                    <p id="home-score">
-                                        <?php echo $home_score; ?>
-                                    </p>
-                                </div>
-                                <div class="actual-mid">
-                                    <span>:</span>
-                                </div>
-                                <div class="away-score">
-                                    <p id="away-score">
-                                        <?php echo $away_score; ?>
-                                    </p>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                        <div class="elapsed-time">
-                            <p id="elapsed-time"><?php echo $e_time; ?>'</p>
-                            <p id="elapsed-hours"><?php echo $elapsed_hours; ?>H</p>
-                        </div>
-                    </div>
-
-                    <!-- Away Team -->
-                    <div class="single-match-right text-center">
-                        <div class="away-logo">
-                            <img src="<?php echo $away_logo_url; ?>" alt="away-logo">
-                        </div>
-                        <div class="away-name">
-                            <p><?php echo $away; ?></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="match-simulation">
-                <h2>Match Simulation</h2>
-                <iframe src="<?php echo $anim_url; ?>" frameborder="0" width="600" height="338"></iframe>
             </section>
         </main>
 
@@ -233,7 +179,7 @@ if (have_posts()) {
             const button = event.target;
             if (button.classList.contains('video-button')) {
                 iframe.src = button.getAttribute('data-url');
-                buttons.forEach(btn => btn.classList.remove('active'));  // Fixed here
+                buttons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
             }
             

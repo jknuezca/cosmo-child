@@ -10,22 +10,37 @@ Text Domain: cosmo-theme
 Template: astra
 */
 
+:root {
+    --text: #fdf8f7;
+    --background: #0c0504;
+    --primary: #78c9d3;
+    --secondary: #080613;
+    --accent: #38a0ad;
+    --active: #1fb757;
+    --details: #0e48a7;
+}
 .site-content {
-    background-color: #020617;
+    background-color: var(--background);
 }
 /* Front Page */
 main.main-layout {
     width: 100%;
 }
+#hero {
+    padding-top: 2rem;
+}
 .hero-main {
     display: grid;
-    grid-template-columns: 1fr 550px;
+    grid-template-columns: 1fr 450px;
     gap: 10px;
     padding: 10px 0;
 }
+.hero-content {
+    padding-right: 3rem;
+}
 .main-match{
     /* background-color: #418bac; */
-    color: #fff;
+    color: var(--text);
     border-radius: 5px;
     padding: 0px 10px 15px 10px;
     position: relative;
@@ -40,7 +55,7 @@ main.main-layout {
     justify-content: center;
 }
 .tournament-name p {
-    background-color: #0e48a7;
+    background-color: var(--details);
     padding: 0 .7rem .2rem .7rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -120,17 +135,26 @@ main.main-layout {
     background-color: #1e293b;
 }
 
-.upcoming-container,
+
 .live-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.live-title {
+    grid-column: 1 / span 2; /* This will make the title span both columns */
+    text-align: center;
+}
+.upcoming-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     padding: 10px 0;
 }
-
-.live-title,
 .upcoming-title {
-    grid-column: 1 / span 3; /* This will make the title span both columns */
+    grid-column: 1 / span 3;
     text-align: center;
 }
 .live-title h2,
@@ -146,7 +170,7 @@ main.main-layout {
     top: 5px;
     width: 5px;
     height: 85%;
-    background-color: #00a752;
+    background-color: var(--primary);
 }
 
 .upcoming-match { 
@@ -196,10 +220,21 @@ main.main-layout {
     text-align: left;
 }
 .team-container{
-    background: #0f172a;
+    background: var(--secondary);
+    padding: 0 20px 20px 20px;
 }
-.team-details h3 {
+.tournament-details {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.tournament-details h3 {
     color: #fff;
+    font-size: 1rem;
+    background-color: var(--details);
+    padding: 5px 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .single-match-content {
     display: grid;
@@ -238,23 +273,46 @@ main.main-layout {
     font-weight: 700;
     color: #f4f4f4;
 }
-.team-container {
-    padding: 15px 5px;
-}
 .home-logo,
 .away-logo {
     padding: 0 10px 10px 10px;
 }
 .match-details h1,
+.match-simulation h2,
+.top-box h2 {
+    color: var(--text);
+}
 .match-simulation h2 {
-    color: #f4f4f4;
+    padding-bottom: .5rem;
+}
+.match-simulation h2,
+.top-box h2 {
+    position: relative;
+    padding-left: 10px;
+}
+.match-simulation h2:after,
+.top-box h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 70%;
+    background-color: var(--primary);
+}
+.simulation-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-column-gap: 10px;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.match-details,
-.team-details {
+.match-details {
     padding: 15px 0;
 }
-.match-details h1 {
+.match-details h1{
     position: relative;
     padding-left: 10px;
 }
@@ -265,13 +323,14 @@ main.main-layout {
     top: 10px;
     width: 4px;
     height: 70%;
-    background-color: #ff4c4c;
+    background-color: var(--primary);
 }
 
+.team-details {padding-bottom: .5rem;}
 .team-details h2{
     position: relative;
     padding-left: 10px;
-    color: #fff;
+    color: var(--text);
 }
 
 .team-details h2:after {
@@ -281,7 +340,7 @@ main.main-layout {
     top: 5px;
     width: 4px;
     height: 85%;
-    background-color: #ff4c4c;
+    background-color: var(--primary);
 }
 
 #elapsed-time{
@@ -289,12 +348,12 @@ main.main-layout {
     font-weight: 500;
 }
 #elapsed-hours {
-    color: #f4f4f4;
+    color: var(--text);
 }
 
 .single-match-right .away-name p,
 .single-match-left .home-name p {
-    color: #f4f4f4;
+    color: var(--text);
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 0;
@@ -312,36 +371,43 @@ main.main-layout {
     justify-content: flex-start;
     align-items: center;
     column-gap: 15px;
-    background: #0f172a;
+    background: var(--secondary);
     padding: 10px 15px;
 }
 .video-button {
-    background: #0073aa;
+    background: var(--accent);
     font-size: .85rem;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text);
     padding: .65rem;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 .video-button.active {
-    background-color: #1fb757;
-    color: white; 
+    background-color: var(--active);
+    color: var(--text); 
 }
 .video-button:hover {
-    background: #005a88;
+    background: var(--active);
 }
-.match-details h1 {
+.match-details h1,
+.team-details h2,
+.match-simulation h2,
+.top-box h2 {
     font-size: 1.75rem;
     text-transform: uppercase;
 }
 .c-box {
-    background: #0f172a;
+    background: var(--secondary);
+    padding: 10px 15px;
+}
+.top-box {
+    background: #222c2d;
     padding: 10px 15px;
 }
 .c-box h3 {
-    color: #f4f4f4;
+    color: var(--text);
 }
 .match-stream,
 #match-stream {
@@ -366,7 +432,7 @@ main.main-layout {
     border: 3px solid #fff;
     padding: 15px;
     margin: 0;
-    color: #fff;
+    color: var(--text);
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -379,7 +445,7 @@ main.main-layout {
 .commentator-info p {
     font-size: .85rem;
     font-weight: 500;
-    color: #f4f4f4;
+    color: var(--text);
     margin-bottom: 0;
 }
 
