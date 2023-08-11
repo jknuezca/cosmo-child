@@ -325,6 +325,10 @@ main.main-layout {
     cursor: pointer;
     transition: background 0.3s ease;
 }
+.video-button.active {
+    background-color: #1fb757;
+    color: white; 
+}
 .video-button:hover {
     background: #005a88;
 }

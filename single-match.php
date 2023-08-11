@@ -222,12 +222,21 @@ if (have_posts()) {
     document.addEventListener("DOMContentLoaded", () => {
         const iframe = document.querySelector('#match-stream iframe');
         const container = document.querySelector('.video-buttons');
+        const buttons = document.querySelectorAll('.video-button');
+
+        // Set the first button as active initially
+        if (buttons.length) {
+            buttons[0].classList.add('active');
+        }
 
         container.addEventListener('click', event => {
             const button = event.target;
             if (button.classList.contains('video-button')) {
                 iframe.src = button.getAttribute('data-url');
+                buttons.forEach(btn => btn.classList.remove('active'));  // Fixed here
+                button.classList.add('active');
             }
+            
         });
     });
 </script>
