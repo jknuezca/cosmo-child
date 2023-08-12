@@ -87,7 +87,7 @@ function get_all_match_dates() {
     return $dates;
 }
 
-function get_matches_by_date_sorted_by_tournament($date) {
+function get_matches_by_tournament($date) {
     $args = array(
         'post_type' => 'match',  // or whatever your custom post type is called
         'posts_per_page' => -1,  // get all matches

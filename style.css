@@ -453,28 +453,37 @@ main.main-layout {
     margin-bottom: 0;
 }
 
+/* Match Results */
 .match-tabs-container {
     font-family: Arial, sans-serif;
 }
 
 .tabs {
     overflow: hidden;
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1 */
 }
-
+.tablink.active{
+    background-color: var(--details);
+    color: var(--text);
+    font-weight: 600;
+}
 .tablink {
-    background-color: #f1f1f1;
-    color: var(--background);
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-weight: 600;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
+    margin: 0 5px;
 }
 
 .tablink:hover {
-    background-color: #ddd;
+    background-color: var(--details);
+    color: var(--text);
+    font-weight: 600;
 }
 
 .tabcontent {
