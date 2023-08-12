@@ -78,3 +78,49 @@ function get_single_match_data() {
 // Handle AJAX requests
 add_action('wp_ajax_get_single_match_data', 'get_single_match_data'); // For logged in users
 add_action('wp_ajax_nopriv_get_single_match_data', 'get_single_match_data'); // For logged out users
+
+function get_all_match_dates() {
+    global $wpdb;
+    
+    $dates = $wpdb->get_col("SELECT DISTINCT DATE(meta_value) FROM $wpdb->postmeta WHERE meta_key = 'match_time' ORDER BY meta_value DESC");
+    
+    return $dates;
+}
+
+function get_matches_by_date_sorted_by_tournament($date) {
+    $args = array(
+        'post_type' => 'match',  // or whatever your custom post type is called
+        'posts_per_page' => -1,  // get all matches
+        'meta_key' => 'tournament_name',  // we want to sort by tournament name
+        'orderby' => 'meta_value',  // sort by the meta key value
+        'order' => 'ASC',  // ascending order
+        'meta_query' => array(
+            array(
+                'key' => 'match_time',
+                'value' => array($date . ' 00:00:00', $date . ' 23:59:59'),
+                'compare' => 'BETWEEN'
+            )
+        )
+    );
+
+    $query = new WP_Query($args);
+    
+    $matches = array();
+    if($query->have_posts()) {
+        while($query->have_posts()) {
+            $query->the_post();
+            
+            $matches[] = array(
+                'tournament_name' => get_post_meta(get_the_ID(), 'tournament_name', true),
+                'home' => get_post_meta(get_the_ID(), 'home_team_name', true),
+                'away' => get_post_meta(get_the_ID(), 'away_team_name', true),
+                'home_score' => get_post_meta(get_the_ID(), 'home_team_score', true),
+                'away_score' => get_post_meta(get_the_ID(), 'away_team_score', true),
+                // ... any other data you need
+            );
+        }
+    }
+    wp_reset_postdata();
+    
+    return $matches;
+}
