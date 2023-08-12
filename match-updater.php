@@ -136,7 +136,13 @@ function update_matches() {
                 <div class="match-content">
                     <!-- Home -->
                     <div class="match-left-option text-center">
-                        <img src="<?php echo $home_logo_url; ?>" alt="home-logo">
+                        <img 
+                            src="<?php echo $home_logo_url; ?>" 
+                            alt="<?php echo $home; ?>"
+                            width="70"
+                            height="70"
+                            loading="lazy"
+                        >
                         <p><?php echo $home; ?></p>
                     </div>
 
@@ -174,7 +180,13 @@ function update_matches() {
 
                     <!-- Away -->
                     <div class="match-right-option text-center">
-                        <img src="<?php echo $away_logo_url; ?>" alt="away-logo">
+                        <img 
+                            src="<?php echo $away_logo_url; ?>" 
+                            alt="<?php echo $away; ?>"
+                            width="70"
+                            height="70"
+                            loading="lazy"
+                        >
                         <p><?php echo $away; ?></p>
                     </div>
                 </div>
@@ -225,7 +237,13 @@ function update_matches() {
                 <div class="match-content">
                     <!-- Home Team -->
                     <div class="match-left-option text-center">
-                        <img src="<?php echo $home_logo_url; ?>" alt="home-logo">
+                        <img 
+                            src="<?php echo $home_logo_url; ?>" 
+                            alt="<?php echo $home; ?>"
+                            width="70"
+                            height="70"
+                            loading="lazy"
+                        >
                         <p><?php echo $home; ?></p>
                     </div>
                     <!-- Score -->
@@ -235,7 +253,13 @@ function update_matches() {
                     </div>
                     <!-- Away Team -->
                     <div class="match-right-option text-center">
-                        <img src="<?php echo $away_logo_url; ?>" alt="away-logo">
+                        <img 
+                            src="<?php echo $away_logo_url; ?>" 
+                            alt="<?php echo $away; ?>"
+                            width="70"
+                            height="70"
+                            loading="lazy"
+                        >
                         <p><?php echo $away; ?></p>
                     </div>
                 </div>
