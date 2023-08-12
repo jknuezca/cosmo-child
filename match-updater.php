@@ -240,8 +240,8 @@ function update_matches() {
                         <img 
                             src="<?php echo $home_logo_url; ?>" 
                             alt="<?php echo $home; ?>"
-                            width="70"
-                            height="70"
+                            width="55"
+                            height="55"
                             loading="lazy"
                         >
                         <p><?php echo $home; ?></p>
@@ -256,8 +256,8 @@ function update_matches() {
                         <img 
                             src="<?php echo $away_logo_url; ?>" 
                             alt="<?php echo $away; ?>"
-                            width="70"
-                            height="70"
+                            width="55"
+                            height="55"
                             loading="lazy"
                         >
                         <p><?php echo $away; ?></p>

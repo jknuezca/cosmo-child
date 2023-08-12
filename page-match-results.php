@@ -3,7 +3,7 @@
     $all_dates = get_all_match_dates(); 
     $dates_to_display = array_slice($all_dates, 0, 6);
 
-    // If today's date isn't in those 5 dates, replace the last date with today's date.
+    // If today's date isn't in those 6 dates, replace the last date with today's date.
     if (!in_array(date("Y-m-d"), $dates_to_display)) {
         array_pop($dates_to_display);  // Remove the last date
         array_unshift($dates_to_display, date("Y-m-d")); // Add current date to the beginning
@@ -13,7 +13,7 @@
 
 ?>
 
-<main class="main-layout">
+<main id="match-results" class="main-layout">
     <div class="match-tabs-container">
         <div class="tabs">
             <?php 

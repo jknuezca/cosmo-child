@@ -20,7 +20,7 @@ Template: astra
     --details: #0e48a7;
 }
 .ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {
-    margin: 0 .1rem !important;
+    margin: 0 .05rem !important;
 }
 
 .site-content {
@@ -454,22 +454,20 @@ main.main-layout {
 }
 
 /* Match Results */
-.match-tabs-container {
-    font-family: Arial, sans-serif;
+#match-results {
+    padding-top: 1rem;
 }
-
 .tabs {
     overflow: hidden;
-    /* background-color: #f1f1f1 */
 }
 .tablink.active{
-    background-color: var(--details);
+    background-color: var(--active);
     color: var(--text);
     font-weight: 600;
 }
 .tablink {
-    background-color: var(--primary);
-    color: var(--secondary);
+    background-color: var(--accent);
+    color: var(--text);
     font-weight: 600;
     float: left;
     border: none;
@@ -481,22 +479,19 @@ main.main-layout {
 }
 
 .tablink:hover {
-    background-color: var(--details);
+    background-color: var(--active);
     color: var(--text);
     font-weight: 600;
 }
-
 .tabcontent {
     display: none;
-    padding: 6px 12px;
+    padding: 15px 5px;
     border-top: none;
 }
-
 .match-results-table {
     border-collapse: collapse;
     width: 100%;
 }
-
 .match-results-table th, .match-results-table td {
     border: 1px solid #ddd;
     padding: 8px;
