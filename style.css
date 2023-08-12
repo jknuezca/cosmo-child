@@ -19,6 +19,10 @@ Template: astra
     --active: #1fb757;
     --details: #0e48a7;
 }
+.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {
+    margin: 0 .1rem !important;
+}
+
 .site-content {
     background-color: var(--background);
 }
@@ -457,6 +461,9 @@ main.main-layout {
     }
     .live-title, .upcoming-title {
         grid-column: 1 / span 2;
+    }
+    .hero-main {
+        grid-template-columns: 1fr;
     }
 } 
 @media only screen and (max-width: 768px ) {
