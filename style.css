@@ -464,7 +464,7 @@ main.main-layout {
 
 .tablink {
     background-color: #f1f1f1;
-    color: black;
+    color: var(--background);
     float: left;
     border: none;
     outline: none;
@@ -495,7 +495,7 @@ main.main-layout {
 }
 
 .match-results-table th {
-    background-color: #f2f2f2;
+    background-color: var(--accent);
 }
 
 /* media queries */
