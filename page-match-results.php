@@ -8,8 +8,7 @@
         array_unshift($all_dates, $today);
     }
 
-    $dates_to_display = array_slice($all_dates, 0, 6); 
-    $dates_to_display = array_reverse($dates_to_display); // Reversing the dates so the current date is on the right
+    $dates_to_display = array_reverse(array_slice($all_dates, 0, 6)); 
     
     get_header();
 
