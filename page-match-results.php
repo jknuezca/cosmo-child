@@ -3,13 +3,11 @@
     $all_dates = get_all_match_dates(); 
     $today = date("Y-m-d");
 
-    if (in_array($today, $all_dates)) { // Check if there's data for today's date
-        if (!in_array($today, $all_dates)) { // Check if today's date is not in the initial 6 dates
-            array_pop($all_dates);  // Remove the last date from the all_dates array
-            array_unshift($all_dates, $today); // Add current date to the beginning
-        }
+    if (in_array($today, $all_dates) && !in_array($today, array_slice($all_dates, 0, 6))) {
+        array_pop($all_dates);
+        array_unshift($all_dates, $today);
     }
-    
+
     $dates_to_display = array_slice($all_dates, 0, 6); 
     $dates_to_display = array_reverse($dates_to_display); // Reversing the dates so the current date is on the right
     
