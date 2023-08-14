@@ -1,21 +1,26 @@
 <?php
 
     $all_dates = get_all_match_dates(); 
-    $dates_to_display = array_slice($all_dates, 0, 6);
+    $today = date("Y-m-d");
 
-    // If today's date isn't in those 6 dates, replace the last date with today's date.
-    if (!in_array(date("Y-m-d"), $dates_to_display)) {
-        array_pop($dates_to_display);  // Remove the last date
-        array_unshift($dates_to_display, date("Y-m-d")); // Add current date to the beginning
+    if (in_array($today, $all_dates)) { // Check if there's data for today's date
+        if (!in_array($today, $all_dates)) { // Check if today's date is not in the initial 6 dates
+            array_pop($all_dates);  // Remove the last date from the all_dates array
+            array_unshift($all_dates, $today); // Add current date to the beginning
+        }
     }
-
-    $dates_to_display = array_reverse($dates_to_display);
+    
+    $dates_to_display = array_slice($all_dates, 0, 6); 
+    $dates_to_display = array_reverse($dates_to_display); // Reversing the dates so the current date is on the right
     
     get_header();
 
 ?>
 
 <main id="match-results" class="main-layout">
+    <div class="match-title" style="padding: 1rem 0;">
+        <h1>Football Match Results</h1>
+    </div>
     <div class="match-tabs-container">
         <div class="tabs">
             <?php
@@ -24,8 +29,9 @@
                 $activeDate = date("Y-m-d");
                 foreach ($dates_to_display as $index => $date): 
                     $activeClass = $date == $activeDate ? 'active' : '';
+                    $displayText = $date == $activeDate ? 'Today' : $date; 
             ?>
-                <button class="tablink <?php echo $activeClass; ?>" onclick="openMatchDate(event, '<?php echo $date; ?>')"><?php echo $date; ?></button>
+                <button class="tablink <?php echo $activeClass; ?>" onclick="openMatchDate(event, '<?php echo $date; ?>')"><?php echo $displayText; ?></button>
             <?php endforeach; ?>
         </div>
 
