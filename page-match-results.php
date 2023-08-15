@@ -152,13 +152,17 @@
         evt.currentTarget.classList.add("active");
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const rows = document.querySelectorAll('.match-results-table tbody tr');
-        rows.forEach(row => {
-            row.addEventListener('click', function() {
-                const permalink = this.getAttribute('data-permalink');
-                if (permalink) {
-                    window.location.href = permalink;
+    document.addEventListener('DOMContentLoaded', () => {
+        const tableBodies = document.querySelectorAll('.match-results-table tbody');
+        
+        tableBodies.forEach(tbody => {
+            tbody.addEventListener('click', function(event) {
+                const row = event.target.closest('tr');
+                if (row) {
+                    const permalink = row.getAttribute('data-permalink');
+                    if (permalink) {
+                        window.location.href = permalink;
+                    }
                 }
             });
         });
