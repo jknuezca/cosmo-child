@@ -13,9 +13,15 @@
 ?>
 
 <main id="match-results" class="main-layout">
-    <div class="match-title" style="padding: 1rem 0;">
-        <h1>Football Match Results</h1>
-    </div>
+    <section id="results-hero">
+        <div class="results-main" role="main">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <div class="results-content" style="padding-bottom: 1rem;">
+                    <h1><?php the_field('results_title'); ?></h1>
+                </div>
+            <?php endwhile;  ?>
+        </div>
+    </section>
     <div class="match-tabs-container">
         <div class="tabs">
             <?php
