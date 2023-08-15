@@ -35,7 +35,7 @@ function custom_results_scripts() {
         wp_enqueue_script('match-results-script', get_stylesheet_directory_uri() . '/js/match-results.js', array(), '1.0.0', true);
     }
 }
-add_action('wp_enqueue_scripts', 'custom_results_scripts', 100);
+add_action('wp_enqueue_scripts', 'custom_results_scripts');
 
 function my_theme_scripts() {
     wp_enqueue_script( 'my-ajax-script', get_stylesheet_directory_uri() . '/js/my-ajax-script.js', array('jquery'), '1.0', true );

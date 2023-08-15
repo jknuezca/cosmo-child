@@ -52,10 +52,12 @@ jQuery(document).ready(function($) {
 
                 } else {
                     console.error('AJAX error: ', response);
+                    alert('Sorry, there was an error fetching match data. Please try refreshing the page.');
                 }
             },
             error: function(errorThrown) {
                 console.error('AJAX error: ', errorThrown);
+                alert('Sorry, there was an error fetching match data. Please try refreshing the page.');
             }
         });
     }
