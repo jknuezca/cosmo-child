@@ -1,5 +1,4 @@
 <?php
-
     $all_dates = get_all_match_dates(); 
     $today = date("Y-m-d");
 
@@ -11,7 +10,6 @@
     $dates_to_display = array_reverse(array_slice($all_dates, 0, 6));
     
     get_header();
-
 ?>
 
 <main id="match-results" class="main-layout">
@@ -21,12 +19,18 @@
     <div class="match-tabs-container">
         <div class="tabs">
             <?php
-                // Get the first date (should be current date)
-                // $activeDate = reset($dates_to_display);  
-                $activeDate = date("Y-m-d");
+                $activeDate = end($dates_to_display);  
+
+                // If today's date is in $dates_to_display, then set $activeDate to today's date.
+                if (in_array(date("Y-m-d"), $dates_to_display)) {
+                    $activeDate = date("Y-m-d");
+                }
+                
                 foreach ($dates_to_display as $index => $date): 
                     $activeClass = $date == $activeDate ? 'active' : '';
-                    $displayText = $date == $activeDate ? 'Today' : $date; 
+                    
+                    //Display "Today" for the current date
+                    $displayText = $date == date("Y-m-d") ? 'Today' : $date; 
             ?>
                 <button class="tablink <?php echo $activeClass; ?>" onclick="openMatchDate(event, '<?php echo $date; ?>')"><?php echo $displayText; ?></button>
             <?php endforeach; ?>
