@@ -324,9 +324,9 @@ main.main-layout {
     content: '';
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 5px;
     width: 4px;
-    height: 70%;
+    height: 85%;
     background-color: var(--primary);
 }
 
