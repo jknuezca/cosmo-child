@@ -111,11 +111,15 @@ function get_matches_by_tournament($date) {
             $query->the_post();
             
             $matches[] = array(
+                'post_id' => get_the_ID(),
                 'tournament_name' => get_post_meta(get_the_ID(), 'tournament_name', true),
                 'home' => get_post_meta(get_the_ID(), 'home_team_name', true),
                 'away' => get_post_meta(get_the_ID(), 'away_team_name', true),
                 'home_score' => get_post_meta(get_the_ID(), 'home_team_score', true),
                 'away_score' => get_post_meta(get_the_ID(), 'away_team_score', true),
+                'home_logo' => get_post_meta(get_the_ID(), 'home_team_logo', true),
+                'away_logo' => get_post_meta(get_the_ID(), 'away_team_logo', true),
+                'match_id' => get_post_meta(get_the_ID(), 'match_id', true),
                 // ... any other data you need
             );
         }
