@@ -8,7 +8,7 @@
         array_unshift($all_dates, $today);
     }
 
-    $dates_to_display = array_reverse(array_slice($all_dates, 0, 6)); 
+    $dates_to_display = array_reverse(array_slice($all_dates, 0, 6));
     
     get_header();
 
@@ -72,12 +72,43 @@
                                 </tr> -->
                             </thead>
                             <tbody>
-                                <?php foreach ($tournament_matches as $match): ?>
+                                <?php foreach ($tournament_matches as $match): 
+                                    $default_logo_url = get_stylesheet_directory_uri() . '/assets/images/football-min.png';
+
+                                    $match['home_logo_url'] = $match['home_logo'] ?: $default_logo_url;
+                                    $match['away_logo_url'] = $match['away_logo'] ?: $default_logo_url;
+                                ?>
                                     <tr>
-                                        <td><?php echo $match['home']; ?></td>
-                                        <td><?php echo $match['home_score']; ?></td>
-                                        <td><?php echo $match['away_score']; ?></td>
-                                        <td><?php echo $match['away']; ?></td>
+                                        <td class="football-match__teams table-column--main"> 
+                                            <div class="football-team_name home_name">
+                                                <span class="team-name__long">
+                                                    <?php echo $match['home']; ?>
+                                                    <img 
+                                                        src="<?php echo $match['home_logo_url']; ?>" 
+                                                        alt="<?php echo $match['home']; ?>"
+                                                        width="30"
+                                                        height="30"
+                                                        loading="lazy"
+                                                    >
+                                                </span>
+                                            </div>
+                                            <div class="football-team__score"><?php echo $match['home_score']; ?></div>
+                                            <span>-</span>
+                                            <div class="football-team__score"><?php echo $match['away_score']; ?></div>
+                                            <div class="football-team_name away_name">
+                                                <span class="team-name__long">
+                                                    <img 
+                                                        src="<?php echo $match['away_logo_url']; ?>" 
+                                                        alt="<?php echo $match['away']; ?>"
+                                                        width="30"
+                                                        height="30"
+                                                        loading="lazy"
+                                                    >
+                                                    <?php echo $match['away']; ?>
+                                                </span>
+                                            </div>
+                                            
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
