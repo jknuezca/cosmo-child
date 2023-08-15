@@ -87,7 +87,7 @@ if (have_posts()) {
                     <!-- Home Team-->
                     <div class="single-match-left text-center">
                         <div class="home-logo">
-                            <img src="<?php echo $home_logo_url; ?>" alt="home-logo">
+                            <img src="<?php echo $home_logo_url; ?>" alt="<?php echo $away; ?>">
                         </div>
                         <div class="home-name">
                             <p><?php echo $home; ?></p>
@@ -134,7 +134,7 @@ if (have_posts()) {
                     <!-- Away Team -->
                     <div class="single-match-right text-center">
                         <div class="away-logo">
-                            <img src="<?php echo $away_logo_url; ?>" alt="away-logo">
+                            <img src="<?php echo $away_logo_url; ?>" alt="<?php echo $away; ?>">
                         </div>
                         <div class="away-name">
                             <p><?php echo $away; ?></p>
