@@ -91,9 +91,15 @@
 
                                     $match['home_logo_url'] = $match['home_logo'] ?: $default_logo_url;
                                     $match['away_logo_url'] = $match['away_logo'] ?: $default_logo_url;
+
+                                    $m_time = $match['match_time'];
+                                    $m_time = date('H:i', strtotime($m_time));
                                 ?>
                                     <tr data-permalink="<?php echo get_permalink($match['post_id']); ?>">
-                                        <td class="football-match__teams table-column--main"> 
+                                        <td class="football-match__teams table-column--main">
+                                            <div class="football-match_time">
+                                                <?php echo $m_time; ?>
+                                            </div> 
                                             <div class="football-team_name home_name">
                                                 <span class="team-name__long">
                                                     <?php echo $match['home']; ?>

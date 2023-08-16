@@ -21,8 +21,14 @@ function child_enqueue_styles() {
 	wp_enqueue_style( 'cosmo-theme-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_COSMO_THEME_VERSION, 'all' );
 
 }
-
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
+
+function single_match_styles() {
+    if (is_singular('match')) {
+        wp_enqueue_style( 'single-match-css', get_stylesheet_directory_uri() . '/assets/css/single-match.css');
+    }
+}
+add_action('wp_enqueue_scripts', 'single_match_styles', 20 );
 
 // function my_theme_scripts() {
 //     wp_enqueue_script( 'my-ajax-script', get_stylesheet_directory_uri() . '/js/my-ajax-script.js', array('jquery'), '1.0', true );
@@ -127,6 +133,7 @@ function get_matches_by_tournament($date) {
                 'home_logo' => get_post_meta(get_the_ID(), 'home_team_logo', true),
                 'away_logo' => get_post_meta(get_the_ID(), 'away_team_logo', true),
                 'match_id' => get_post_meta(get_the_ID(), 'match_id', true),
+                'match_time' => get_post_meta(get_the_ID(), 'match_time', true),
                 // ... any other data you need
             );
         }

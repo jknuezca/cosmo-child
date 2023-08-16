@@ -95,7 +95,7 @@ function update_matches() {
         if (!empty($live_matches)) {
             echo '
             <div class="live-container">
-                <div class="live-title text-center">
+                <div class="live-title">
                     <h2>Live Matches</h2>
                 </div>';
         foreach ($live_matches as $match) {
