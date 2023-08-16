@@ -110,7 +110,7 @@ if (have_posts()) {
                         <?php endif; ?>
                     </div>
                     <div class="c-box">
-                        <h3>Match Statistics</h3>
+                        <h3>Chat</h3>
                     </div>
                 </div>
             </section>
@@ -120,10 +120,18 @@ if (have_posts()) {
                     <h2>Match Simulation</h2>
                     <iframe src="<?php echo $anim_url; ?>" frameborder="0" width="100%" height="442"></iframe>
                 </div>
-                <div class="top-box">
-                    <h2>Top Houses</h2>
-                    <div class="box-container">
-                        
+                <div class="aside-container">
+                    <div class="top-box" >
+                        <h2>Top Houses</h2>
+                        <div class="tb-container">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Match Statistics</h3>
+                        <div class="stat-container">
+                            Lorem ipsum dolor sit amet.
+                        </div>
                     </div>
                 </div>
             </section>
