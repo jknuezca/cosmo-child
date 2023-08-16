@@ -32,16 +32,25 @@
                 if (in_array(date("Y-m-d"), $dates_to_display)) {
                     $activeDate = date("Y-m-d");
                 }
-                
+                        
                 foreach ($dates_to_display as $index => $date): 
                     $activeClass = $date == $activeDate ? 'active' : '';
-                    
-                    //Display "Today" for the current date
-                    $displayText = $date == date("Y-m-d") ? 'Today' : $date; 
+
+                    // Parse the date into the desired formats
+                    $dateObj = DateTime::createFromFormat('Y-m-d', $date);
+                    $dayOfWeek = $dateObj->format('D');  // This will give us "Mon", "Tue", etc.
+                    $dayAndMonth = $dateObj->format('j M Y');  // This will give us "15 Aug", etc.
+
+                    // Determine if the date is "Today"
+                    $isToday = $date == date("Y-m-d");
             ?>
-                <button class="tablink <?php echo $activeClass; ?>" onclick="openMatchDate(event, '<?php echo $date; ?>')"><?php echo $displayText; ?></button>
+                <button class="tablink <?php echo $activeClass; ?>" onclick="openMatchDate(event, '<?php echo $date; ?>')">
+                    <p class="tab-day"><?php echo $isToday ? 'Today' : $dayOfWeek; ?></p>
+                    <p class="tab-date"><?php echo $dayAndMonth; ?></p>
+                </button>
             <?php endforeach; ?>
         </div>
+
 
         <?php 
         // Display match details

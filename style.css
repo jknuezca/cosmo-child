@@ -471,14 +471,14 @@ main.main-layout {
     font-weight: 600;
 }
 .tablink {
-    background-color: var(--accent);
+    background-color: var(--secondary);
     color: var(--text);
     font-weight: 600;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 10px 40px;
     transition: 0.3s;
     margin: 0 5px;
 }
@@ -487,6 +487,10 @@ main.main-layout {
     background-color: var(--active);
     color: var(--text);
     font-weight: 600;
+}
+.tablink p {margin: 0;}
+.tablink p.tab-day {
+    margin-bottom: 5px;
 }
 .tabcontent {
     display: none;
