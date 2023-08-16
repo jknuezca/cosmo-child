@@ -127,6 +127,7 @@ function get_matches_by_tournament($date) {
                 'home_logo' => get_post_meta(get_the_ID(), 'home_team_logo', true),
                 'away_logo' => get_post_meta(get_the_ID(), 'away_team_logo', true),
                 'match_id' => get_post_meta(get_the_ID(), 'match_id', true),
+                'match_time' => get_post_meta(get_the_ID(), 'match_time', true),
                 // ... any other data you need
             );
         }

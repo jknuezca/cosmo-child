@@ -49,7 +49,7 @@ if (have_posts()) {
                     <div class="stream-box">
                         <!-- Stream Content Iframe -->
                         <div class="match-stream" id="match-stream">
-                            <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="100%" height="530"></iframe>
+                            <iframe src="<?php echo esc_url($video_url[0]['iframe']); ?>" width="100%" height="475"></iframe>
                         </div>
 
                         <!-- Video Buttons -->
