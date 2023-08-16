@@ -31,6 +31,9 @@ Template: astra
 .site-content {
     background-color: var(--table-secondary);
 }
+body.single-match .site-content {
+    background: var(--background);
+}
 /* Front Page */
 main.main-layout {
     width: 100%;
