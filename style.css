@@ -11,20 +11,25 @@ Template: astra
 */
 
 :root {
-    --text: #fdf8f7;
     --background: #0c0504;
     --primary: #78c9d3;
     --secondary: #080613;
     --accent: #38a0ad;
+    
+    --text: #fdf8f7;
+
     --active: #1fb757;
     --details: #0e48a7;
+
+    --table-primary: #333333;
+    --table-secondary: #252525;
 }
 .ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {
     margin: 0 .05rem !important;
 }
 
 .site-content {
-    background-color: var(--background);
+    background-color: var(--table-secondary);
 }
 /* Front Page */
 main.main-layout {
@@ -488,8 +493,11 @@ main.main-layout {
     padding: 15px 5px;
     border-top: none;
 }
+
+table, td, th {border: none;}
 .match-results-table {
     border-collapse: collapse;
+    border: 1px solid #000;
     width: 100%;
 }
 .match-results-table th, .match-results-table td {
@@ -497,7 +505,7 @@ main.main-layout {
     text-align: center;
 }
 .match-results-table th {
-    background-color: var(--accent);
+    background-color: var(--background);
 }
 tr[data-permalink] {
     cursor: pointer;
@@ -506,21 +514,14 @@ tr[data-permalink] {
     display: grid;
     grid-template-columns: 1fr 2rem 1rem 2rem 1fr;
     text-align: center;
-    align-items: center;
-    justify-items: center;
+    place-items: center;
+    /* background-color: var(--table-primary); */
 }
-.football-team__score {
-    background: var(--active);
-    padding: 3px 10px;
-    border-radius: 2px;
+tr:nth-child(even){
+    background: var(--table-secondary);
 }
-
-.football-match__teams.table-column--main {
-    display: grid;
-    grid-template-columns: 1fr 2rem 1rem 2rem 1fr;
-    text-align: center;
-    align-items: center;
-    justify-items: center;
+tr:nth-child(odd){
+    background: var(--table-primary);
 }
 .football-team__score {
     background: var(--active);
