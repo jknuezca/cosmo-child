@@ -38,7 +38,9 @@ get_header();
 <script>
     async function fetchMatchData() {
         try {
-            const response = await fetch("<?php echo get_stylesheet_directory_uri(); ?>/fetch-match-data.php");
+            const response = await fetch("<?php echo get_stylesheet_directory_uri(); ?>/fetch-match-data.php", {
+                method: 'GET'
+            });
             if (response.ok) {
                 const data = await response.text();
                 document.getElementById("match-list").innerHTML = data;
