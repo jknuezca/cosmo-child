@@ -36,28 +36,18 @@ get_header();
 <?php get_footer(); ?>
 
 <script>
-    // Function called every 30 seconds
-    function fetchMatchData() {
-        // Create an XMLHttpRequest object
-        var xhr = new XMLHttpRequest();
-        
-        // Define the type of request, the URL, and whether the request should be asynchronous
-        xhr.open("GET", "<?php echo get_stylesheet_directory_uri(); ?>/fetch-match-data.php", true);
-        
-        // Function to handle the response
-        xhr.onreadystatechange = function() {
-            // Check if the request is complete
-            if (xhr.readyState === 4) {
-                // Check if the request was successful
-                if (xhr.status === 200) {
-                    // Update the match list container with the new HTML
-                    document.getElementById("match-list").innerHTML = xhr.responseText;
-                }
+    async function fetchMatchData() {
+        try {
+            const response = await fetch("<?php echo get_stylesheet_directory_uri(); ?>/fetch-match-data.php");
+            if (response.ok) {
+                const data = await response.text();
+                document.getElementById("match-list").innerHTML = data;
+            } else {
+                console.error('Failed to fetch match data:', response.statusText);
             }
-        };
-        
-        // Send the request
-        xhr.send();
+        } catch (error) {
+            console.error('Error occurred while fetching match data:', error);
+        }
     }
 
     // Fetch and update matches initially
