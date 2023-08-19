@@ -232,7 +232,9 @@ main.main-layout {
     text-align: left;
 }
 .team-container{
-    background: var(--secondary);
+    /* background: var(--secondary); */
+    background: no-repeat center;
+    background-size: cover;
     padding: 0 20px 20px 20px;
 }
 .tournament-details {
@@ -298,15 +300,27 @@ main.main-layout {
 .top-box h2 {
     padding-bottom: .5rem;
 }
+.stat-box h2 {
+    font-size: 1.75rem;
+    text-transform: uppercase;
+}
+.stat-box h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 85%;
+    background-color: var(--primary);
+}
 .match-simulation h2,
 .top-box h2,
-.stat-box h3 {
+.stat-box h2 {
     position: relative;
     padding-left: 10px;
 }
 .match-simulation h2:after,
-.top-box h2:after,
-.stat-box h3:after {
+.top-box h2:after {
     content: '';
     position: absolute;
     left: 0;
@@ -389,8 +403,9 @@ main.main-layout {
     justify-content: flex-start;
     align-items: center;
     column-gap: 15px;
-    background: var(--secondary);
+    background: var(--table-primary);
     padding: 10px 15px;
+    margin-top: .5rem;
 }
 .video-button {
     background: var(--accent);
@@ -417,7 +432,7 @@ main.main-layout {
     text-transform: uppercase;
 }
 .c-box {
-    background: var(--secondary);
+    background: var(--table-primary);
     padding: 10px 15px;
 }
 .top-box {

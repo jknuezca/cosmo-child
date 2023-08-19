@@ -29,6 +29,7 @@ if (have_posts()) {
         $video_url = json_decode($video_url, true);  // Convert the JSON string back to PHP array
         
         $default_logo_url = get_stylesheet_directory_uri() . '/assets/images/football-min.png';
+        $container_bg = get_stylesheet_directory_uri() . '/assets/images/match-texture.webp';
         // $live_bg = '/wp-content/themes/force-child/assets/images/live-bg.webp';        
 
         $home_logo_url = $home_logo ?: $default_logo_url;
@@ -43,7 +44,7 @@ if (have_posts()) {
 ?>
         <!-- Output the match content -->
         <main class="main-layout">
-            <section class="team-container" style="margin-top: 1rem;">
+            <section class="team-container" style="background: url('<?php echo $container_bg; ?>'); margin-top: 1rem;">
                 <div class="tournament-details">
                     <h3><?php echo $t_name; ?></h3>
                 </div>
@@ -52,7 +53,7 @@ if (have_posts()) {
                     <!-- Home Team-->
                     <div class="single-match-left text-center">
                         <div class="home-logo">
-                            <img src="<?php echo $home_logo_url; ?>" alt="<?php echo $away; ?>">
+                            <img src="<?php echo $home_logo_url; ?>" alt="<?php echo $home; ?>">
                         </div>
                         <div class="home-name">
                             <p><?php echo $home; ?></p>
@@ -128,7 +129,7 @@ if (have_posts()) {
                         </div>
                     </div>
                     <div class="stat-box">
-                        <h3>Match Statistics</h3>
+                        <h2>Match Statistics</h2>
                         <div class="stat-container">
                             Lorem ipsum dolor sit amet.
                         </div>
